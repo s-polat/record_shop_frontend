@@ -10,8 +10,10 @@ function App() {
   const [records, setRecords]=useState([])
 
   async function getData(){
-    const data = await fetch('/api/')
-    console.log(data.json());
+    const data = await fetch('http://localhost:4000/api')
+    const result=await data.json()
+    console.log(result);
+    setRecords(result.records)
     
   }
 
@@ -32,7 +34,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Navigation/>}/>
-        <Route path='/records' element={<Records/>}/>
+        <Route path='/records' element={<Records records={records}/>}/>
 
         <Route path='/addRecord' element={<RecordAdd/>}/>
       </Routes>
