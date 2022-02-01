@@ -6,23 +6,23 @@ function Records({ records }) {
     <div>
       <Navigation />
       <h1 className="text-center">All of Record</h1>
-      <div className="d-flex justify-content-around align-items-center">
+      <div className="d-flex justify-content-around align-items-center flex-wrap">
         
-          {records.map((record) => {
+          {records.map((record, index) => {
             return (
               
-                <div class="card" style={{width: "18rem"}}>
-                  <img src={record.cover} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">Record Name: {record.title}</h5>
-                    <p class="card-text">
+                <div key={index} className="card m-5" style={{width: "18rem"}}>
+                  <img src={record.cover} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Record Name: {record.title}</h5>
+                    <p className="card-text">
                       Artist: {record.artist}
                     </p>
-                    <p class="card-text">
+                    <p className="card-text">
                       Year: {record.year}
                     </p>
-                    <p class="card-text">
-                      Price: {record.price}
+                    <p className="card-text">
+                      Price: {record.price}€
                     </p>
                     
                   </div>
