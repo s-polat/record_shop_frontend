@@ -32,7 +32,7 @@ function RecordAdd() {
 
   function submitHandler(e){
     e.preventDefault();
-    fetch("http://localhost:4000/records", {
+    fetch("https://polat-record-app.herokuapp.com/records", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
