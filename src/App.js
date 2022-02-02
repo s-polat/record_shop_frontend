@@ -7,7 +7,7 @@ import Records from "./components/pages/Records";
 function App() {
   const [records, setRecords] = useState([]);
  
-
+console.log(records);
   async function getData() {
     const data = await fetch("https://polat-record-app.herokuapp.com/records");
     const result = await data.json();

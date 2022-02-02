@@ -12,23 +12,7 @@ function RecordAdd({setRecords}) {
     price: 0,
   });
 
-  /*function postData() {
-    fetch("https://localhost:4000/records", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addRecord),
-    })
-      .then((response) => response.json())
-      
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  } */
+ 
 
   function submitHandler(e){
     e.preventDefault();
