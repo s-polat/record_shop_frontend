@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<Navigation />} />
           <Route path="/records" element={<Records records={records} />} />
 
-          <Route path="/addRecord" element={<RecordAdd />} />
+          <Route path="/addRecord" element={<RecordAdd setRecords={setRecords} />} />
         </Routes>
       </BrowserRouter>
     </div>

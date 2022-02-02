@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Navigation from "../Navigation";
 
-function RecordAdd() {
+function RecordAdd({setRecords}) {
 
   const [addRecord, setAddRecord] = useState({
     title: "",
@@ -39,7 +39,20 @@ function RecordAdd() {
       },
       body: JSON.stringify(addRecord),
     });
-    alert('New record is added. Thank you...')
+    fetch("http://localhost:4000/records", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addRecord),
+    })
+      .then(res => res.json())
+      .then(data=> {
+        setRecords(prevState => [...prevState, data]) //prestate aslinda bizim eski records statemiz
+        alert(`${data.title} wurde nach Datenbank gespeichert`)
+
+      })
+   
     }
 
 
