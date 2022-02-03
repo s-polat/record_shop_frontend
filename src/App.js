@@ -6,10 +6,11 @@ import Records from "./components/pages/Records";
 
 function App() {
   const [records, setRecords] = useState([]);
+  const BACKEND_URL_HEROKU= process.env.REACT_APP_BACKEND_URL_HEROKU
  
 console.log(records);
   async function getData() {
-    const data = await fetch("https://polat-record-app.herokuapp.com/records");
+    const data = await fetch(BACKEND_URL_HEROKU);
     const result = await data.json();
     console.log(result);
     setRecords(result.records);
