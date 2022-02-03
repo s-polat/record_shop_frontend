@@ -25,7 +25,15 @@ function RecordAdd({setRecords}) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(addRecord),
+    })
+
+    .then(res => res.json())
+    .then(data=> {
+      setRecords(prevState => [...prevState, data]) //prestate aslinda bizim eski records statemiz
+      alert(`${data.title} wurde nach Datenbank gespeichert`)
+
     });
+    
     fetch(BACKEND_URL_POST_LOCAL, {
       method: "POST",
       headers: {
@@ -33,12 +41,7 @@ function RecordAdd({setRecords}) {
       },
       body: JSON.stringify(addRecord),
     })
-      .then(res => res.json())
-      .then(data=> {
-        setRecords(prevState => [...prevState, data]) //prestate aslinda bizim eski records statemiz
-        alert(`${data.title} wurde nach Datenbank gespeichert`)
-
-      })
+     
    
     }
 
