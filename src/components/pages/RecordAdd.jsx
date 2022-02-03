@@ -4,6 +4,9 @@ import Navigation from "../Navigation";
 
 function RecordAdd({setRecords}) {
 
+  const BACKEND_URL_POST_HEROKU= process.env.REACT_APP_BACKEND_URL_POST_HEROKU
+  const BACKEND_URL_POST_LOCAL= process.env.REACT_APP_BACKEND_URL_POST_LOCAL
+
   const [addRecord, setAddRecord] = useState({
     title: "",
     artist: "",
@@ -16,14 +19,14 @@ function RecordAdd({setRecords}) {
 
   function submitHandler(e){
     e.preventDefault();
-    fetch("https://polat-record-app.herokuapp.com/records", {
+    fetch(BACKEND_URL_POST_HEROKU, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(addRecord),
     });
-    fetch("http://localhost:4000/records", {
+    fetch(BACKEND_URL_POST_LOCAL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
